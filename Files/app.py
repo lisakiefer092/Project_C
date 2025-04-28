@@ -15,7 +15,7 @@ app = Dash(
 
 # clean up spreadsheets:
 ## food CPI:
-df1 = pd.read_csv("C:/Users/Mark Davidson/PycharmProjects/Project_c/Data/Consumer_Index_Data/CPI_food_athome.csv")
+df1 = pd.read_csv("../Data/Consumer_Index_Data/CPI_food_athome.csv")
 df1['year'] = pd.to_datetime(df1['year'])
 df1['year'] = df1['year'].dt.year
 df1 = df1.groupby('year')['CPI_food'].mean().reset_index()
@@ -23,7 +23,7 @@ df1["CPI_food"] = df1["CPI_food"].round(2)
 df1 = df1[(df1['year'] >= 1973) & (df1['year'] <= 2023)]
 
 ## fuel and utilities CPI
-df2 = pd.read_csv("C:/Users/Mark Davidson/PycharmProjects/Project_c/Data/Consumer_Index_Data/CPI_fuel_Utilities.csv")
+df2 = pd.read_csv("../Data/Consumer_Index_Data/CPI_fuel_Utilities.csv")
 df2['year'] = pd.to_datetime(df2['year'])
 df2['year'] = df2['year'].dt.year
 df2 = df2.groupby('year')['CPI_Fuel_ut'].mean().reset_index()
@@ -31,7 +31,7 @@ df2["CPI_Fuel_ut"] = df2["CPI_Fuel_ut"].round(2)
 df2 = df2[(df2['year'] >= 1973) & (df2['year'] <= 2023)]
 
 ## housing CPI
-df3 = pd.read_csv("C:/Users/Mark Davidson/PycharmProjects/Project_c/Data/Consumer_Index_Data/CPI_housing.csv")
+df3 = pd.read_csv("../Data/Consumer_Index_Data/CPI_housing.csv")
 df3['year'] = pd.to_datetime(df3['year'])
 df3['year'] = df3['year'].dt.year
 df3 = df3.groupby('year')['CPI_housing'].mean().reset_index()
@@ -39,7 +39,7 @@ df3["CPI_housing"] = df3["CPI_housing"].round(2)
 df3 = df3[(df3['year'] >= 1973) & (df3['year'] <= 2023)]
 
 ## Used Cars and Vehicles CPI
-df4 = pd.read_csv("C:/Users/Mark Davidson/PycharmProjects/Project_c/Data/Consumer_Index_Data/CPI_Usedcars_vehicles.csv")
+df4 = pd.read_csv("../Data/Consumer_Index_Data/CPI_Usedcars_vehicles.csv")
 df4['year'] = pd.to_datetime(df4['year'])
 df4['year'] = df4['year'].dt.year
 df4 = df4.groupby('year')['CPI_cars'].mean().reset_index()
@@ -47,13 +47,13 @@ df4["CPI_cars"] = df4["CPI_cars"].round(2)
 df4 = df4[(df4['year'] >= 1973) & (df4['year'] <= 2023)]
 
 ## mean family income
-dff = pd.read_csv("C:/Users/Mark Davidson/PycharmProjects/Project_c/Data/Mean_Income_Data/Mean_income_family.csv")
+dff = pd.read_csv("../Data/Mean_Income_Data/Mean_income_family.csv")
 dff['year'] = pd.to_datetime(dff['year'])
 dff['year'] = dff['year'].dt.year
 dff = dff[(dff['year'] >= 1973) & (dff['year'] <= 2023)]
 
 ## College Cost
-dfff = pd.read_csv("C:/Users/Mark Davidson/PycharmProjects/Project_c/Data/Education_Data/College_Cost_Data.csv")
+dfff = pd.read_csv("../Data/Education_Data/College_Cost_Data.csv")
 
 #  make one df
 df6 = pd.merge(df1, df2, on='year')
